@@ -33,11 +33,11 @@ export default {
 .show {
   cursor: pointer;
   background-color: #A0D995;
-  -webkit-transition: background-color 1000ms linear;
-  -moz-transition: background-color 1000ms linear;
-  -o-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  -webkit-transition: background-color 200ms linear;
+  -moz-transition: background-color 200ms linear;
+  -o-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
   ;
 }
 
@@ -47,5 +47,10 @@ export default {
 
 .description {
   text-align: left;
+}
+
+.genre {
+  font-size: 0.8em;
+  font-weight: bold;
 }
 </style>
