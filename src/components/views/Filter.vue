@@ -1,10 +1,10 @@
 <template>
-  show me pls!
+  This is the filter
 </template>
 
 <script>
 export default {
-    name: "Show"
+name: "Filter"
 }
 </script>
 

@@ -1,15 +1,13 @@
 <template>
-  <ShowsOverview />
+  <div id="app">
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import ShowsOverview from './components/views/ShowsOverview.vue'
 
 export default {
   name: 'App',
-  components: {
-    ShowsOverview
-  }
 }
 </script>
 
