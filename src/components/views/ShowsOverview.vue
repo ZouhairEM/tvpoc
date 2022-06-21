@@ -1,15 +1,13 @@
  <template>
-  This is the overview
   <div class="container">
     <div class="row col-3 m-3 mx-auto">
       <div class="col-9">
         <input type="text" v-model="search" placeholder="Type to find a show" class="p-1" />
       </div>
-      <div class="clear-btn col-3 bg-dark bg-gradient text-white p-1" @click="clearSearch" v-if="status">
+      <button class="clear-btn" @click="clearSearch" v-if="status">
         Clear
-      </div>
+      </button>
     </div>
-    <!-- {{ show }} -->
     <div class="m-2 d-flex flex-wrap">
       <button class="m-1 filter tn btn-primary btn-lg" @click="() => { setfilter(filter) }"
         v-for="(filter, i) in filters" :key="i">
@@ -73,7 +71,7 @@ export default {
       this.search = "";
     },
     setfilter(name) {
-      this.status - !this.status;
+      this.status = !this.status;
       this.filteredShows = this.shows.filter((show) => {
         return show.genres.includes(name);
       })
@@ -88,13 +86,14 @@ export default {
       })
     },
   },
-  watch: {
-    searching(){
-      if(this.search.length > 0){
-        this.status = true;
-      }
-    }
-  },
+  // watch: {
+  //   searching(){
+  //     if(this.search.length > 0){
+  //       this.status = true;
+  //       console.log('true');
+  //     }
+  //   }
+  // },
   created() {
     this.fetchAPI();
   }
