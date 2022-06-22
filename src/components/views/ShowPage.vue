@@ -57,7 +57,7 @@
           </div>
           <div class="col-md-6 mb-4">
             <h4>
-              Runtime
+              Duration
             </h4>
             <div class="runtimes d-flex justify-content-evenly">
 
@@ -70,7 +70,7 @@
         <div class="row col-md-12">
           <div class="col-md-6 mb-2">
             <h4>
-              Episode count
+              Average runtime
             </h4>
             <h4 class="d-flex align-items-center justify-content-center">
               {{ show.runtime }}

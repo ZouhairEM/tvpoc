@@ -1,5 +1,7 @@
  <template>
   <div class="container-fluid">
+    <Header @emitGenreClicked="setfilter" @emitRatingClicked="sortList" @emitAZClicked="sortList"
+      @emitShowClicked="showAll" :filters="filters" :filteredShows="filteredShows" :totalCount="totalCount" />
     <div class="wrapper-back mt-4 mb-4">
       <div class="d-flex flex-start m-2">
         <input type="text" v-model="search" placeholder="Type to find a show" class="p-1" />
@@ -8,14 +10,6 @@
         </button>
       </div>
     </div>
-    <Header 
-      @emitGenreClicked="setfilter" 
-      @emitRatingClicked="sortList" 
-      @emitAZClicked="sortList" 
-      @emitShowClicked="showAll" 
-      :filters="filters" 
-      :filteredShows="filteredShows" 
-      :totalCount="totalCount" />
     <div class="row mt-4">
       <div v-if="typedShow.length === 0" class="empty p-2 mx-auto">
         <h3 class="d-flex justify-content-center">
