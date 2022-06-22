@@ -1,22 +1,27 @@
  <template>
   <div class="container">
     <div class="row col-3 m-3 mx-auto">
-      <div class="col-9">
+      <div class="d-flex flex-start m-2">
         <input type="text" v-model="search" placeholder="Type to find a show" class="p-1" />
+        <button class="clear-btn m-1" @click="clearSearch" :disabled="!search.length">
+          Clear
+        </button>
       </div>
-      <button class="clear-btn" @click="clearSearch" v-if="status">
-        Clear
-      </button>
     </div>
-    <div class="m-2 d-flex flex-wrap">
+    <div class="m-0 d-flex flex-wrap">
       <button class="m-1 filter tn btn-primary btn-lg" @click="() => { setfilter(filter) }"
         v-for="(filter, i) in filters" :key="i">
         {{ filter }}
       </button>
     </div>
+    <div class="d-flex justify-content-start">
+      <button class="m-1 filter tn btn-primary btn-lg" @click="showAll" :disabled="!search.length">
+        Show all
+      </button>
+    </div>
     <div class="row">
       <div v-if="typedShow.length === 0" class="empty p-2">No shows were found</div>
-      <div class="show-item col-md-4" v-for="(show, i) in typedShow" :key="i" @click="shareShow(show)">
+      <div class="show-item col-md-4" v-for="(show, i) in typedShow" :key="i" @click="shareShow(show.name)">
         <ShowBio :showInfo="show" />
       </div>
     </div>
@@ -36,7 +41,10 @@ export default {
       filteredShows: [],
       filters: [],
       search: "",
-      status: false
+      status: false,
+      exampleObj: {
+        name: 'test'
+      }
     }
   },
   methods: {
@@ -51,8 +59,8 @@ export default {
           this.availableFilters();
         }))
     },
-    shareShow: function (showObj) {
-      this.$router.push({ name: "shows", params: { data: showObj } });
+    shareShow: function (e) {
+      this.$router.push({ name: "shows", params: { data: e }});
       // console.log(JSON.parse(JSON.stringify(showObj)));
     },
     availableFilters: function () {
@@ -71,7 +79,6 @@ export default {
       this.search = "";
     },
     setfilter(name) {
-      this.status = !this.status;
       this.filteredShows = this.shows.filter((show) => {
         return show.genres.includes(name);
       })
@@ -102,7 +109,12 @@ export default {
  
  <style scoped>
  .clear-btn {
-   line-height: 1.7;
-   cursor: pointer;
+    background: black !important;
+    color: white !important;
+    margin: 0!important;
+    margin-left: 0.5em!important;
+ }
+ button:disabled{
+  visibility: hidden;
  }
  </style>

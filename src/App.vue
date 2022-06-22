@@ -26,17 +26,26 @@ button {
   background: #ffc107 !important;
   border: none;
   color: black !important;
-  font-weight: bold;
+  font-weight: 500;
   padding: 0.4em !important;
-  border-radius: 4px!important;
+  border-radius: 4px !important;
+}
+
+button:focus {
+  box-shadow: 0 0 0 0.15rem rgb(0 0 0) !important;
 }
 
 a {
-  color: #ffc107!important;
-  font-weight: bold!important;
+  color: #ffc107 !important;
+  font-weight: bold !important;
 }
 
 a:hover {
-  color: black!important;
+  color: black !important;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0.10rem rgb(0 0 0) !important;
+  outline: none !important;
 }
 </style>
