@@ -1,7 +1,7 @@
 <template>
   <div class="row show col-md-12 p-2 m-2 border border-dark rounded">
     <div class="col-md-3">
-      <img class="thumbnail col-3 rounded w-100" :src="showInfo.image.medium" :alt="showInfo.name" />
+        <img class="thumbnail col-3 rounded w-100" :src="showInfo.image.medium" :alt="showInfo.name" />
     </div>
     <div class="row col-md-9">
       <div class="d-flex justify-content-between mx-0 mb-4 px-0">
@@ -14,7 +14,7 @@
           <div class="d-flex align-items-center">
             <div>
               <svg class="svg-star" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
-                viewBox="0 0 24 24" width="24px" fill="#ffc107">
+                viewBox="0 0 24 24" width="24px">
                 <g>
                   <rect fill="none" height="24" width="24" x="0" />
                   <polygon points="14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10" />
@@ -68,16 +68,15 @@ export default {
   margin: 2em auto;
   padding: 1em;
 }
-
 .show:hover {
-  background-color: #ffc107;
+  background-color: var(--highlightColor);
 }
 
 div.rating>svg {
+  fill: red;
   transition: background-color 400ms linear;
 }
-
-.show:hover>div>div>div>div>div>svg {
+.show:hover > div >div > div > div > div > svg > g > polygon {
   fill: black;
   transition: fill 400ms;
 }

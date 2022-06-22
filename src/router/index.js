@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createMemoryHistory, createRouter } from "vue-router";
 import ShowsOverview from "../components/views/ShowsOverview.vue";
 import ShowPage from "../components/views/ShowPage.vue";
 import Filter from "../components/views/Filter.vue";
@@ -23,7 +23,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createMemoryHistory(),
   routes,
 });
 

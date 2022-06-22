@@ -5,7 +5,7 @@
 </template>
 
 <script>
-
+import "../src/assets/js/bootstrap.bundle";
 export default {
   name: 'App',
 }
@@ -22,8 +22,11 @@ export default {
   max-width: 1400px;
 }
 
+:root {
+  --highlightColor: #ffbe0b;
+}
 button {
-  background: #ffc107 !important;
+  background: var(--highlightColor) !important;
   border: none;
   color: black !important;
   font-weight: 500;
@@ -34,9 +37,11 @@ button {
 button:focus {
   box-shadow: 0 0 0 0.15rem rgb(0 0 0) !important;
 }
-
+polygon{
+  fill: var(--highlightColor);
+}
 a {
-  color: #ffc107 !important;
+  color: var(--highlightColor) !important;
   font-weight: bold !important;
 }
 
@@ -47,5 +52,16 @@ a:hover {
 input:focus {
   box-shadow: 0 0 0 0.10rem rgb(0 0 0) !important;
   outline: none !important;
+}
+
+.black-btn {
+  background: black !important;
+  color: white !important;
+  margin: 0 !important;
+  margin-left: 0.5em !important;
+}
+
+button:disabled {
+  visibility: hidden;
 }
 </style>

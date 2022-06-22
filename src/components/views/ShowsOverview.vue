@@ -1,27 +1,30 @@
  <template>
-  <div class="container">
-    <div class="row col-3 m-3 mx-auto">
+  <div class="container-fluid">
+    <div class="wrapper-back mt-4 mb-4">
       <div class="d-flex flex-start m-2">
         <input type="text" v-model="search" placeholder="Type to find a show" class="p-1" />
-        <button class="clear-btn m-1" @click="clearSearch" :disabled="!search.length">
+        <button class="black-btn m-1" @click="clearSearch" :disabled="!search.length">
           Clear
         </button>
       </div>
     </div>
-    <div class="m-0 d-flex flex-wrap">
-      <button class="m-1 filter tn btn-primary btn-lg" @click="() => { setfilter(filter) }"
-        v-for="(filter, i) in filters" :key="i">
-        {{ filter }}
-      </button>
-    </div>
-    <div class="d-flex justify-content-start">
-      <button class="m-1 filter tn btn-primary btn-lg" @click="showAll" :disabled="!search.length">
-        Show all
-      </button>
-    </div>
-    <div class="row">
-      <div v-if="typedShow.length === 0" class="empty p-2">No shows were found</div>
-      <div class="show-item col-md-4" v-for="(show, i) in typedShow" :key="i" @click="shareShow(show.name)">
+    <Header 
+      @emitGenreClicked="setfilter" 
+      @emitRatingClicked="sortList" 
+      @emitAZClicked="sortList" 
+      @emitShowClicked="showAll" 
+      :filters="filters" 
+      :filteredShows="filteredShows" 
+      :totalCount="totalCount" />
+    <div class="row mt-4">
+      <div v-if="typedShow.length === 0" class="empty p-2 mx-auto">
+        <h3 class="d-flex justify-content-center">
+          No shows were found with a name of
+          '{{ search }}'
+        </h3>
+      </div>
+      <div class="show-item col-sm-12 col-md-6 col-lg-4" v-for="(show, i) in typedShow" :key="i"
+        @click="shareShow(show)">
         <ShowBio :showInfo="show" />
       </div>
     </div>
@@ -29,92 +32,93 @@
 </template>
  
  <script>
-import ShowBio from "../ShowBio.vue"
-export default {
-  name: "ShowsOverview",
-  components: {
-    ShowBio
-  },
-  data() {
-    return {
-      shows: [],
-      filteredShows: [],
-      filters: [],
-      search: "",
-      status: false,
-      exampleObj: {
-        name: 'test'
-      }
-    }
-  },
-  methods: {
-    fetchAPI: function () {
-      fetch("https://api.tvmaze.com/shows")
-        .then((response => {
-          return response.json();
-        }))
-        .then((response => {
-          this.shows = response;
-          this.filteredShows = this.shows;
-          this.availableFilters();
-        }))
-    },
-    shareShow: function (e) {
-      this.$router.push({ name: "shows", params: { data: e }});
-      // console.log(JSON.parse(JSON.stringify(showObj)));
-    },
-    availableFilters: function () {
-      return this.shows.filter((show) => {
-        return (
-          show.genres.forEach((genre) => {
-
-            if (!this.filters.includes(genre)) {
-              this.filters.sort().push(genre);
-            }
-          })
-        )
-      });
-    },
-    clearSearch: function () {
-      this.search = "";
-    },
-    setfilter(name) {
-      this.filteredShows = this.shows.filter((show) => {
-        return show.genres.includes(name);
-      })
-    },
-  },
-  computed: {
-    typedShow: function () {
-      return this.filteredShows.filter((show) => {
-        return (
-          show.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-        )
-      })
-    },
-  },
-  // watch: {
-  //   searching(){
-  //     if(this.search.length > 0){
-  //       this.status = true;
-  //       console.log('true');
-  //     }
-  //   }
-  // },
-  created() {
-    this.fetchAPI();
-  }
-}
-</script>
+ import ShowBio from "../ShowBio.vue"
+ import Header from "../Header.vue"
  
- <style scoped>
- .clear-btn {
-    background: black !important;
-    color: white !important;
-    margin: 0!important;
-    margin-left: 0.5em!important;
+ export default {
+   name: "ShowsOverview",
+   components: {
+     ShowBio,
+     Header
+   },
+   data() {
+     return {
+       shows: [],
+       filteredShows: [],
+       filters: [],
+       search: "",
+       totalCount: [],
+       status: false,
+       sortTable: [],
+       name: 'hi',
+       exampleObj: {
+         name: 'test'
+       }
+     }
+   },
+   methods: {
+     fetchAPI: function () {
+       fetch("https://api.tvmaze.com/shows")
+         .then((response => {
+           return response.json();
+         }))
+         .then((response => {
+           this.shows = response;
+           this.totalCount.push(this.shows.length)
+           this.filteredShows = this.shows;
+           this.availableFilters();
+         }))
+     },
+     shareShow: function (e) {
+       this.$router.push({
+         name: "shows",
+         query: {
+           id: e.id,
+           data: JSON.stringify(e)
+         }
+       });
+     },
+     availableFilters: function () {
+       return this.shows.filter((show) => {
+         return (
+           show.genres.forEach((genre) => {
+             if (!this.filters.includes(genre)) {
+               this.filters.sort().push(genre);
+             }
+           })
+         )
+       });
+     },
+     showAll: function () {
+       this.filteredShows = this.shows;
+     },
+     sortList: function (payload) {
+       if (payload.name === 'byRating') {
+         this.filteredShows.sort((a, b) => { return parseFloat(b.rating.average) - parseFloat(a.rating.average) });
+       } else if (payload.name === 'byAZ') {
+         this.filteredShows.sort((a, b) => { return a.name.toLowerCase().localeCompare(b.name.toLowerCase()) })
+       }
+     },
+     setfilter(payload) {
+       this.filteredShows = this.shows.filter((show) => {
+         return show.genres.includes(payload.name);
+       })
+     },
+     clearSearch: function () {
+       this.search = "";
+     },
+   },
+   computed: {
+     typedShow: function () {
+       return this.filteredShows.filter((show) => {
+         return (
+           show.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+         )
+       })
+     },
+   },
+   created() {
+     this.fetchAPI();
+   }
  }
- button:disabled{
-  visibility: hidden;
- }
- </style>
+ </script>
