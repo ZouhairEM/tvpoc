@@ -1,18 +1,12 @@
 import { createMemoryHistory, createRouter } from "vue-router";
 import ShowsOverview from "../components/views/ShowsOverview.vue";
 import ShowPage from "../components/views/ShowPage.vue";
-import Filter from "../components/views/Filter.vue";
 
 const routes = [
   {
     path: "/",
     name: "ShowsOverview",
     component: ShowsOverview,
-  },
-  {
-    path: "/filter",
-    name: "Filter",
-    component: Filter,
   },
   {
     path: "/shows",

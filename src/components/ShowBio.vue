@@ -69,7 +69,7 @@ export default {
   padding: 1em;
 }
 .show:hover {
-  background-color: var(--highlightColor);
+  background-color: var(--primaryColor);
 }
 
 div.rating>svg {

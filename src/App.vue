@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import "../src/assets/js/bootstrap.bundle";
 export default {
   name: 'App',
 }
@@ -23,45 +22,72 @@ export default {
 }
 
 :root {
-  --highlightColor: #ffbe0b;
+  --primaryColor: #ffbe0b;
+  --secondaryColor: black;
 }
+
 button {
-  background: var(--highlightColor) !important;
+  background-color: var(--primaryColor) !important;
   border: none;
-  color: black !important;
+  color: var(--secondaryColor) !important;
   font-weight: 500;
   padding: 0.4em !important;
   border-radius: 4px !important;
 }
 
 button:focus {
-  box-shadow: 0 0 0 0.15rem rgb(0 0 0) !important;
+  box-shadow: 0 0 0 0.15rem var(--secondaryColor) !important;
 }
-polygon{
-  fill: var(--highlightColor);
+
+polygon {
+  fill: var(--primaryColor);
 }
+
 a {
-  color: var(--highlightColor) !important;
+  color: var(--primaryColor) !important;
   font-weight: bold !important;
 }
 
 a:hover {
-  color: black !important;
+  color: var(--secondaryColor) !important;
+}
+
+input {
+  box-shadow: 5px 5px var(--primaryColor);
 }
 
 input:focus {
-  box-shadow: 0 0 0 0.10rem rgb(0 0 0) !important;
+  box-shadow: 5px 5px var(--primaryColor);
+  /* box-shadow: 0 0 0 0.10rem rgb(0 0 0) !important; */
   outline: none !important;
 }
 
 .black-btn {
-  background: black !important;
+  background: var(--secondaryColor) !important;
   color: white !important;
   margin: 0 !important;
   margin-left: 0.5em !important;
 }
 
+button:hover {
+  background: var(--secondaryColor) !important;
+  color: white !important;
+
+}
+
 button:disabled {
   visibility: hidden;
+}
+.svg-position-absolute {
+    top: 0;
+  transform: translate(-50%, 0%);
+  z-index: -1;
+}
+.disappear-icon {
+  fill: var(--primaryColor);
+  /* position: absolute; */
+}
+.welcome-title > h1{
+  box-shadow: 0px 5px var(--primaryColor)
 }
 </style>

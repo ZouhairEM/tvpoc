@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
-        <div class="container-fluid">
+        <div class="container-fluid p-0">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import "../assets/js/bootstrap.bundle";
+
 export default {
     name: "Header",
     props: ["filters", "filteredShows", "totalCount"],

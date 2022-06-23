@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid">
+    <WelcomeScreen/>      
     <div class="wrapper-back mt-4 mb-4">
       <router-link to="/#">
         <button>
@@ -98,8 +99,12 @@
 </template>
 
 <script>
+import WelcomeScreen from "../WelcomeScreen.vue"
 export default {
   name: "ShowPage",
+  components: {
+    WelcomeScreen
+  },
   data() {
     return {
       show: null,
