@@ -1,12 +1,14 @@
 <template>
   <div class="row show col-md-12 p-2 m-2 border border-dark rounded">
-    <div class="col-md-3">
-        <img class="thumbnail col-3 rounded w-100" :src="showInfo.image.medium" :alt="showInfo.name" />
+    <div class="col-md-3 d-flex align-items-center">
+      <div class="p-sm-2 p-lg-0 mb-sm-4 thumbnail">
+        <img class="rounded w-100 w-sm-50" :src="showInfo.image.medium" :alt="showInfo.name" />
+      </div>
     </div>
     <div class="row col-md-9">
-      <div class="d-flex justify-content-between mx-0 mb-4 px-0">
+      <div class="d-flex justify-content-between justify-content-sm-center mx-0 mb-4 px-0">
         <div class="description px-2 col-md-10 d-flex justify-content-between">
-          <h5>
+          <h5 class="text-start">
             {{ showInfo.name }}
           </h5>
         </div>
@@ -29,15 +31,15 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12 d-sm-flex justify-content-sm-center justify-content-lg-start">
         <div>
-          <div class="genre-title d-flex justify-content-start">
+          <div class="genre-title d-lg-flex justify-content-sm-center justify-content-lg-start ">
             <h6 class="mb-1">
               Genres
             </h6>
           </div>
           <div class="genres d-flex">
-            <div class="genre" v-for="(genre, i) in showInfo.genres" :key="i">
+            <div class="genre  font-weight-bold" v-for="(genre, i) in showInfo.genres" :key="i">
               <p class="mb-0">
                 {{ genre }}
               </p>
@@ -63,31 +65,27 @@ export default {
   border: none !important;
   box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
   transition: background-color 200ms linear;
-  text-align: center;
-  color: #2c3e50;
-  margin: 2em auto;
-  padding: 1em;
+  color: var(--highlightColor);
 }
 .show:hover {
   background-color: var(--primaryColor);
 }
 
 div.rating>svg {
-  fill: red;
   transition: background-color 400ms linear;
 }
 .show:hover > div >div > div > div > div > svg > g > polygon {
   fill: black;
   transition: fill 400ms;
 }
-
-.description {
-  text-align: left;
-}
-
-.genre {
-  font-size: 0.8em;
-  font-weight: bold;
+.genre{
+  font-size: 0.8em; 
   margin-right: 1em;
+}
+@media (max-width: 772px) {
+  .thumbnail {
+    width: 50%!important;
+    margin: 2em auto;
+  }
 }
 </style>

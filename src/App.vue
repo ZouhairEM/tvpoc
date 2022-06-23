@@ -58,15 +58,12 @@ input {
 
 input:focus {
   box-shadow: 5px 5px var(--primaryColor);
-  /* box-shadow: 0 0 0 0.10rem rgb(0 0 0) !important; */
   outline: none !important;
 }
 
 .black-btn {
   background: var(--secondaryColor) !important;
   color: white !important;
-  margin: 0 !important;
-  margin-left: 0.5em !important;
 }
 
 button:hover {
@@ -78,16 +75,18 @@ button:hover {
 button:disabled {
   visibility: hidden;
 }
+
 .svg-position-absolute {
-    top: 0;
+  top: 0;
   transform: translate(-50%, 0%);
   z-index: -1;
 }
+
 .disappear-icon {
   fill: var(--primaryColor);
-  /* position: absolute; */
 }
-.welcome-title > h1{
-  box-shadow: 0px 5px var(--primaryColor)
+
+.welcome-title>h1 {
+  box-shadow: 0px 5px var(--primaryColor);
 }
 </style>
