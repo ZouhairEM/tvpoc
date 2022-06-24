@@ -121,17 +121,13 @@ export default {
   },
   data() {
     return {
+      search: "",
       shows: [],
       filteredShows: [],
       filters: [],
-      search: "",
       totalCount: [],
-      status: false,
       sortTable: [],
       name: 'hi',
-      exampleObj: {
-        name: 'test'
-      }
     }
   },
   methods: {

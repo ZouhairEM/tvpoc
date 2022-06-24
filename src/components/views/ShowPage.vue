@@ -11,7 +11,7 @@
       </router-link>
     </div>
     <div class="wrapper-show row col-12 col-md-8 mx-auto align-items-center">
-      <div class="wrapper-img col-md-4">
+      <div class="wrapper-img col-md-4" ref="wrapper-show">
         <img class="image mb-4 p-2 w-100" :src="show.image.original" alt="" />
       </div>
       <div class="wrapper-text col-md-8 d-flex flex-column justify-content-around">

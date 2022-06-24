@@ -13,14 +13,14 @@
                         {{ filter }}
                     </button>
                     <div class="d-flex justify-content-start">
-                        <button class="m-1 filter tn btn-primary btn-lg black-btn"
+                        <button class="ratingBtn m-1 filter tn btn-primary btn-lg black-btn"
                             @click="emitRatingFilter('byRating')">
                             Top rated
                         </button>
-                        <button class="m-1 filter tn btn-primary btn-lg black-btn" @click="emitAZFilter('byAZ')">
+                        <button class="aZbutton m-1 filter tn btn-primary btn-lg black-btn" @click="emitAZFilter('byAZ')">
                             A-Z
                         </button>
-                        <button class="m-1 filter tn btn-primary btn-lg black-btn" @click="emitShowAll"
+                        <button class="showAllButton m-1 filter tn btn-primary btn-lg black-btn" @click="emitShowAll"
                             v-if="filteredShows.length < totalCount">
                             Show all
                         </button>
@@ -53,9 +53,3 @@ export default {
     }
 }
 </script>
-
-<style>
-button.navbar-toggler {
-    background: var(--primaryColor)!important;
-}
-</style>

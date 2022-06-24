@@ -89,4 +89,7 @@ button:disabled {
 .welcome-title>h1 {
   box-shadow: 0px 5px var(--primaryColor);
 }
+button.navbar-toggler {
+    background: var(--primaryColor)!important;
+}
 </style>
