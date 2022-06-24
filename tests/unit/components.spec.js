@@ -17,6 +17,7 @@ describe('WelcomeScreen.vue', () => {
 
 describe('Header.vue', () => {
   beforeEach(() => {
+    // setup
     wrapper = shallowMount(Header, {
       propsData: {
         filteredShows: []
@@ -58,7 +59,7 @@ describe('Header.vue', () => {
 
 describe('Header.vue', () => {
   it('should read filteredShows props', () => {
-    // given
+    // setup
     wrapper = shallowMount(Header, {
       propsData: {
         filteredShows: 250
@@ -70,7 +71,7 @@ describe('Header.vue', () => {
 })
 describe('showBio.vue', () => {
   it('should read showBio props', () => {
-    // given
+    // setup
     wrapper = shallowMount(ShowBio, {
       propsData: {
         showInfo: {

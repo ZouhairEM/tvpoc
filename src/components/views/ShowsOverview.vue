@@ -1,10 +1,10 @@
  <template>
   <div class="container-fluid" v-if="totalCount.length">
-    <WelcomeScreen/>      
+    <WelcomeScreen />
     <Header @emitGenreClicked="setfilter" @emitRatingClicked="sortList" @emitAZClicked="sortList"
       @emitShowClicked="showAll" :filters="filters" :filteredShows="filteredShows" :totalCount="totalCount" />
     <div class="d-flex justify-content-center p-2  mt-4">
-      <input type="text" v-model="search" placeholder="Type to find a show" class="p-2 px-3 h5" />
+      <input type="text" v-model="search" placeholder="Type to find a show" class="p-2 px-3" />
       <button class="black-btn mt-0 mb-2 mx-3" @click="clearSearch" :disabled="!search.length">
         Clear
       </button>
@@ -107,7 +107,7 @@ m146 -202 c111 -33 160 -177 95 -274 -38 -55 -84 -79 -153 -79 -49 0 -69 5
   </div>
 </template>
  
- <script>
+<script>
 import ShowBio from "../ShowBio.vue"
 import Header from "../Header.vue"
 import WelcomeScreen from "../WelcomeScreen.vue"
@@ -127,7 +127,6 @@ export default {
       filters: [],
       totalCount: [],
       sortTable: [],
-      name: 'hi',
     }
   },
   methods: {

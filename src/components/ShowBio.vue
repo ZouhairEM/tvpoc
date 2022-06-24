@@ -1,7 +1,7 @@
 <template>
   <div class="row show col-md-12 p-2 m-2 border border-dark rounded">
     <div class="col-md-3 d-flex align-items-center">
-      <div class="p-sm-2 p-lg-0 mb-sm-4 thumbnail">
+      <div class="p-sm-2 p-lg-0 thumbnail">
         <img class="rounded w-100 w-sm-50" :src="showInfo.image.medium" :alt="showInfo.name" />
       </div>
     </div>

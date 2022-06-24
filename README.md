@@ -8,7 +8,7 @@ The reason this application is developed with the technology that was decided on
 
 ### Instructions
 
-Running the application is relatively straightforward. Upon copying the code, use **npm install** to install dependencies, followed by **npm run serve** in your CLI to run the application on your local machine. To run and see the unit tests, use **npm run test:unit components**. You can also take a look at the [Github repo](https://github.com/ZouhairEM/tvpoc) to see information about the version history that went into development.
+Running the application is relatively straightforward. After copying the code, use **npm install** to install dependencies, followed by **npm run serve** in your CLI to run the application on your local machine. To run and see the unit tests, use **npm run test:unit components**. You can also take a look at the [Github repo](https://github.com/ZouhairEM/tvpoc) to see information about the version history that went into development.
 
 ### Final thoughts
 
