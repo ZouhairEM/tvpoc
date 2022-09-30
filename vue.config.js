@@ -1,4 +1,3 @@
 module.exports = {
-    publicPath: '/tvpoc/'
-  };
-  
+  publicPath: process.env.NODE_ENV === "production" ? "/tvpoc/" : "/",
+};

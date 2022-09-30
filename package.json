@@ -1,7 +1,6 @@
 {
   "name": "tvpoc",
   "version": "0.1.0",
-  "homepage": "https://ZouhairEM.github.io/tvpoc",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
