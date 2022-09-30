@@ -7,9 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"    
+    "lint": "vue-cli-service lint" 
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
