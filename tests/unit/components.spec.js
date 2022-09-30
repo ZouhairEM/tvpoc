@@ -11,7 +11,7 @@ describe('WelcomeScreen.vue', () => {
     wrapper = shallowMount(WelcomeScreen);
     //then
     expect(wrapper.exists()).toBe(true);
-    expect(wrapper.text()).toContain("TV App POC");
+    expect(wrapper.text()).toContain("TV Shows App");
   })
 })
 
