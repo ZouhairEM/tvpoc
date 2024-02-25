@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import ShowsOverview from "../views/ShowsOverview.vue";
-import ShowPage from "../views/ShowPage.vue";
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import ShowsOverview from '../views/ShowsOverview.vue'
+import ShowPage from '../views/ShowPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,11 +11,10 @@ const router = createRouter({
       component: ShowsOverview
     },
     {
-      path: "/shows",
-      name: "shows",
+      path: '/shows',
+      name: 'shows',
       component: ShowPage
-    },    
-  ]
+    }
+  ] as Array<RouteRecordRaw>
 })
-
 export default router
